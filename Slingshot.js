@@ -24,11 +24,12 @@ class SlingShot{
     display(){
         image(this.sling1,200,20);
         image(this.sling2,170,20);
+     // the bird body exsist on the slingshot then only draw the line 
         if(this.sling.bodyA){
             var pointA = this.sling.bodyA.position;
             var pointB = this.pointB;
             push();
-            
+        // make the line thick when behind the slingshot    
             stroke(48,22,8);
             if(pointA.x < 220) {
                 strokeWeight(7);
@@ -36,6 +37,7 @@ class SlingShot{
                 line(pointA.x - 20, pointA.y, pointB.x + 30, pointB.y - 3);
                 image(this.sling3,pointA.x -30, pointA.y -10,15,30);
             }
+            // make the line thin when ahead of the slingshot 
             else{
                 strokeWeight(3);
                 line(pointA.x + 25, pointA.y, pointB.x -10, pointB.y);

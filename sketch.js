@@ -21,7 +21,7 @@ function setup(){
     engine = Engine.create();
     world = engine.world;
 
-
+// created a ground and platform
     ground = new Ground(600,height,1200,20);
     platform = new Ground(150, 305, 300, 170);
 
@@ -95,6 +95,8 @@ function mouseReleased(){
 function keyPressed(){
     if(keyCode === 32){
        slingshot.attach(bird.body);
+       bird.trajectory = [];
+       Matter.Body.setPosition(bird.body, {x: 200 , y: 50 });
     }
 }
 
